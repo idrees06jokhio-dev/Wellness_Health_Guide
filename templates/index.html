@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wellness Health Guide</title>
+  <!-- For favicon png -->
+  <link rel="shortcut icon" type="image/icon" href="static/images/logo.png" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/project.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+
+  <!-- Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+
+  <!-- Cloudflare Web Analytics -->
+  <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e8f2f4b2910744b3a9f0b860a04c138c"}'></script> -->
+  <!-- End Cloudflare Web Analytics -->
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+
+          <!-- LogoImage -->
+          <a href="{{ url_for('home')}}" class="pull-left">
+            <div id="logo-img"></div>
+          </a>
+
+          <!-- Brand Name -->
+          <div class="navbar-brand">
+            <a href="{{ url_for('home')}}">
+              <h1>Wellness Health Guide</h1>
+            </a>
+          </div>
+
+          <!-- Menubar -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div> <!--Closing Navbar-header-->
+
+        <!--Lists-->
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+          <ul id="nav-list" class="nav navbar-nav navbar-right">
+
+
+            <li class="active"><a href="{{ url_for('home')}}">Home</a></li>
+            <li><a href="{{ url_for('symptoms')}}">Symptoms</a></li>
+            <li><a href="{{ url_for('suggester')}}">Suggester</a></li>
+            <hr class="visible-xs">
+            <li><a href="{{ url_for('about')}}">About</a></li>
+          </ul>
+        </div> <!-- Closing list -->
+
+      </div> <!-- Closing Container -->
+    </nav>
+  </header>
+  <!-- End of Header -->
+
+  <!-- Homepage -->
+
+  <div id="main-content" class="container">
+    <div id="home-tiles" class="row">
+
+      <!-- Intro -->
+      <div id="Ayur" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <p>Ayurveda is an ancient Indian system of medicine that has been practiced for thousands of years. The word
+          Ayurveda comes from the Sanskrit words Ayur, meaning life, and Veda, meaning knowledge. According to Ayurvedic
+          principles, good health is achieved through a balance of mind, body, and spirit. Ayurveda places great
+          importance on the prevention of disease, and it emphasizes the use of natural remedies, including herbs,
+          massage, and yoga, to promote healing and restore balance. The goal of Ayurvedic treatment is to identify and
+          address the root cause of illness, rather than just treating the symptoms. While Ayurveda has been criticized
+          by some for lacking scientific evidence, it remains a popular alternative medicine practice in India and is
+          gaining recognition in other parts of the world.</p>
+      </div>
+
+      <!-- Slide -->
+      <div id="Slide" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <img class="slide" src="../static/images/Slide1.jpg">
+        <img class="slide" src="../static/images/Slide2.jpg">
+        <img class="slide" src="../static/images/Slide3.jpg">
+        <img class="slide" src="../static/images/Slide4.jpg">
+        <img class="slide" src="../static/images/Slide5.jpg">
+      </div>
+
+    </div>
+
+    <!-- Quote -->
+    <div class="body">
+      <div class="para">
+        <h2>The great thing about Ayurveda is that its treatments always yield side benefits, not side effects. </h2>
+      </div>
+    </div>
+
+    <!-- Symptom and Suggester -->
+    <div id="home-tiles" class="row">
+      <div class="col-sm-6 col-xs-12">
+        <a href="{{ url_for('symptoms')}}">
+          <div id="Symptom-tile"><span>Symptom</span></div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <a href="{{ url_for('suggester')}}">
+          <div id="Suggester-tile"><span>Suggester</span></div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <!-- End of Homepage -->
+
+  <!-- Footer -->
+  <footer id="Footer" class="panel-footer" style="background-color:#006400;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   
+  align-items: center ">
+    <div class="container">
+      <section id="Testimonials" class="col-sm-12 text-center">
+        <p>"Ayurveda is a traditional Indian system of medicine that emphasizes the balance between mind, body, and
+          spirit for optimal health and well-being."</p>
+      </section>
+      <div class="text-center">&copy; Copyright @2026</div>
+    </div> <!-- Closing container -->
+  </footer>
+  <!-- End of footer   -->
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="{{ url_for('static',filename='js/jquery-2.1.4.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/slide.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wellness Health Guide</title>
+    <!-- For favicon png -->
+    <link rel="shortcut icon" type="image/icon" href="static/images/logo.png"/>   
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/project.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+
+    <!-- Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        
+        <!-- LogoImage -->
+        <a href="{{ url_for('home')}}" class="pull-left">
+          <div id="logo-img"></div>
+        </a> 
+
+        <!-- Brand Name -->
+        <div class="navbar-brand">
+          <a href="{{ url_for('home')}}"><h1>Wellness Health Guide</h1></a>
+        </div>
+
+        <!-- Menubar -->  
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+      </div> <!--Closing Navbar-header-->
+
+      <!--Lists-->
+      <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right">
+                 
+
+                <li><a href="{{ url_for('home')}}">Home</a></li>
+                <li class="active"><a href="{{ url_for('symptoms')}}">Symptoms</a></li>
+                <li><a href="{{ url_for('suggester')}}">Suggester</a></li>
+                <hr class="visible-xs">
+                <li><a href="{{ url_for('about')}}">About</a></li>
+            </ul>
+      </div> <!-- Closing list -->
+
+    </div> <!-- Closing Container -->
+    </nav> 
+  </header>
+  <!-- End of Header -->
+  
+  <!-- First Time Notice - Sticky (below header) shown only during first training before results -->
+  {% if is_first_time and not results %}
+  <div id="first-time-notice" class="sticky-notice">
+    <div class="alert alert-warning">
+      <div class="container">
+        <p><b>⚠️ First Time Training Models:</b> This is your first prediction! Our Machine Learning models need to be trained, which may take 10-30 seconds. 
+           Subsequent predictions will be instant.</p>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Symptom Page -->
+  <div id="main-content" class="container">
+    <h2 id="symptoms-title" class="text-center">Symptoms</h2>
+    
+    <!-- Intro -->
+    <div id="Sp">
+      <p>Welcome to our innovative symptoms prediction feature, designed to bring you peace of mind and valuable insights into your health. With just a few clicks, you can input your symptoms and let our advanced algorithm do the rest, to provide you with personalized predictions about potential health conditions.</p>
+    </div>
+
+    <!-- List of Symptoms for input box -->
+    <datalist id="scripts">
+      <option value="back_pain" label="Back Pain"><option value="constipation" label="Constipation"><option value="abdominal_pain" label="Abdominal Pain">
+      <option value="diarrhoea" label="Diarrhoea"><option value="mild_fever" label="Mild Fever"><option value="yellow_urine" label="Yellow Urine">
+      <option value="yellowing_of_eyes" label="Yellowing Of Eyes"><option value="acute_liver_failure" label="Acute Liver Failure"><option value="fluid_overload" label="Fluid Overload">
+      <option value="swelling_of_stomach" label="Swelling Of Stomach"><option value="swelled_lymph_nodes" label="Swelled Lymph Nodes"><option value="malaise" label="Malaise">
+      <option value="blurred_and_distorted_vision" label="Blurred And Distorted Vision"><option value="phlegm" label="Phlegm"><option value="throat_irritation" label="Throat Irritation">
+      <option value="redness_of_eyes" label="Redness Of Eyes"><option value="sinus_pressure" label="Sinus Pressure"><option value="runny_nose" label="Runny Nose">
+      <option value="congestion" label="Congestion"><option value="chest_pain" label="Chest Pain"><option value="weakness_in_limbs" label="Weakness In Limbs">
+      <option value="fast_heart_rate" label="Fast Heart Rate"><option value="pain_during_bowel_movements" label="Pain During Bowel Movements"><option value="pain_in_anal_region" label="Pain In Anal Region">
+      <option value="bloody_stool" label="Bloody Stool"><option value="irritation_in_anus" label="Irritation In Anus"><option value="neck_pain" label="Neck Pain">
+      <option value="dizziness" label="Dizziness"><option value="cramps" label="Cramps"><option value="bruising" label="Bruising">
+      <option value="obesity" label="Obesity"><option value="swollen_legs" label="Swollen Legs"><option value="swollen_blood_vessels" label="Swollen Blood Vessels">
+      <option value="puffy_face_and_eyes" label="Puffy Face And Eyes"><option value="enlarged_thyroid" label="Enlarged Thyroid"><option value="brittle_nails" label="Brittle Nails">
+      <option value="swollen_extremeties" label="Swollen Extremities"><option value="excessive_hunger" label="Excessive Hunger"><option value="extra_marital_contacts" label="Extra Marital Contacts">
+      <option value="drying_and_tingling_lips" label="Drying And Tingling Lips"><option value="slurred_speech" label="Slurred Speech"><option value="knee_pain" label="Knee Pain">
+      <option value="hip_joint_pain" label="Hip Joint Pain"><option value="muscle_weakness" label="Muscle Weakness"><option value="stiff_neck" label="Stiff Neck">
+      <option value="swelling_joints" label="Swelling Joints"><option value="spinning_movements" label="Spinning Movements"><option value="loss_of_balance" label="Loss Of Balance">
+      <option value="movement_stiffness" label="Movement Stiffness"><option value="weakness_of_one_body_side" label="Weakness Of One Body Side"><option value="loss_of_smell" label="Loss Of Smell">
+      <option value="unsteadiness" label="Unsteadiness"><option value="bladder_discomfort" label="Bladder Discomfort"><option value="foul_smell_of urine" label="Foul Smell Of Urine">
+      <option value="continuous_feel_of_urine" label="Continuous Feel Of Urine"><option value="passage_of_gases" label="Passage Of Gases"><option value="internal_itching" label="Internal Itching">
+      <option value="toxic_look_(typhos)" label="Toxic Look (Typhos)"><option value="depression" label="Depression"><option value="irritability" label="Irritability">
+      <option value="muscle_pain" label="Muscle Pain"><option value="altered_sensorium" label="Altered Sensorium"><option value="red_spots_over_body" label="Red Spots Over Body">
+      <option value="belly_pain" label="Belly Pain"><option value="abnormal_menstruation" label="Abnormal Menstruation"><option value="dischromic_patches" label="Dischromic Patches">
+      <option value="watering_from_eyes" label="Watering From Eyes"><option value="increased_appetite" label="Increased Appetite"><option value="polyuria" label="Polyuria">
+      <option value="family_history" label="Family History"><option value="mucoid_sputum" label="Mucoid Sputum"><option value="rusty_sputum" label="Rusty Sputum">
+      <option value="lack_of_concentration" label="Lack Of Concentration"><option value="visual_disturbances" label="Visual Disturbances"><option value="receiving_blood_transfusion" label="Receiving Blood Transfusion">
+      <option value="receiving_unsterile_injections" label="Receiving Unsterile Injections"><option value="coma" label="Coma"><option value="stomach_bleeding" label="Stomach Bleeding">
+      <option value="distention_of_abdomen" label="Distention Of Abdomen"><option value="history_of_alcohol_consumption" label="History Of Alcohol Consumption">
+      <option value="blood_in_sputum" label="Blood In Sputum"><option value="prominent_veins_on_calf" label="Prominent Veins On Calf"><option value="palpitations" label="Palpitations">
+      <option value="painful_walking" label="Painful Walking"><option value="pus_filled_pimples" label="Pus Filled Pimples"><option value="blackheads" label="Blackheads">
+      <option value="scurring" label="Scurring"><option value="skin_peeling" label="Skin Peeling"><option value="silver_like_dusting" label="Silver Like Dusting">
+      <option value="small_dents_in_nails" label="Small Dents In Nails"><option value="inflammatory_nails" label="Inflammatory Nails"><option value="blister" label="Blister">              
+      <option value="red_sore_around_nose" label="Red Sore Around Nose"><option value="yellow_crust_ooze" label="Yellow Crust Ooze">
+    </datalist>
+
+
+    <!-- Symptoms -->
+    <form action="{{ url_for('s1')}}#result" method="post" data-first-time="{{ 'true' if is_first_time else 'false' }}">
+    <div id="sfill">
+      <div  for = "snum" class="inputBox">
+        <input list="scripts" type = 'text' id = 'fnam', name = 'fn section', required = 'required'>
+        <span>First Symptom</span>
+      </div>
+
+      <div for = "snum" class="inputBox">
+        <input list="scripts" type = 'text' id = 'snam', name = 'sn section', required = 'required'>
+        <span>Second Symptom</span>
+      </div>
+
+      <div for = "snum" class="inputBox">
+        <input list="scripts" type = 'text' id = 'tnam', name = 'tn section', required = 'required'>
+        <span>Third Symptom</span>
+      </div>
+
+      <div for = "snum" class="inputBox">
+        <input list="scripts" type = 'text' id = 'fonam', name = 'fon section', required = 'required'>
+        <span>Fourth Symptom</span>
+      </div>
+    </div>
+    
+    <!-- Submit -->
+    <div id="sub" >
+      <div for = "snum" class="input">
+        <input id="submit" type="submit" value="Predict" ></input>
+      </div>
+    </div>
+
+    </form>
+    <br></br>
+
+    <!-- Training Progress Bar - Only show during training -->
+    <div id="training-progress" class="container" style="display: none;">
+      <div class="alert alert-info">
+        <h4>🤖 Machine Learning Models Training in Progress...</h4>
+        <div class="progress">
+          <div id="training-bar" class="progress-bar progress-bar-striped progress-bar-animated" 
+               role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <span id="training-text">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result -->
+    {% if results %}
+    <div id="result" class="container">
+      <h3>{{results}}</h3>
+    </div>
+    {% endif %}
+  </div>
+  <!-- End of Symptom Page -->
+
+  <!-- Footer -->
+<footer id="Footer" class="panel-footer" style="background-color:#006400;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   
+  align-items: center ">
+    <div class="container">
+      <section id="Testimonials" class="col-sm-12 text-center">
+        <p>"Ayurveda is a traditional Indian system of medicine that emphasizes the balance between mind, body, and
+          spirit for optimal health and well-being."</p>
+      </section>
+      <div class="text-center">&copy; Copyright @2026</div>
+    </div> <!-- Closing container -->
+  </footer>
+  <!-- End of footer   -->
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="{{ url_for('static',filename='js/jquery-2.1.4.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/symptoms.js') }}"></script>
+
+</body>
+</html>

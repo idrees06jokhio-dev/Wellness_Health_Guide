@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wellness Health Guide</title>
+    <!-- For favicon png -->
+    <link rel="shortcut icon" type="image/icon" href="static/images/logo.png"/>   
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/project.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+
+    <!-- Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        
+        <!-- LogoImage -->
+        <a href="{{ url_for('home')}}" class="pull-left">
+          <div id="logo-img"></div>
+        </a> 
+
+        <!-- Brand Name -->
+        <div class="navbar-brand">
+          <a href="{{ url_for('home')}}"><h1>Wellness Health Guide</h1></a>
+        </div>
+
+        <!-- Menubar -->  
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+      </div> <!--Closing Navbar-header-->
+
+      <!--Lists-->
+      <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right">
+                 
+
+                <li><a href="{{ url_for('home')}}">Home</a></li>
+                <li><a href="{{ url_for('symptoms')}}">Symptoms</a></li>
+                <li class="active"><a href="{{ url_for('suggester')}}">Suggester</a></li>
+                <hr class="visible-xs">
+                <li><a href="{{ url_for('about')}}">About</a></li>
+            </ul>
+      </div> <!-- Closing list -->
+
+    </div> <!-- Closing Container -->
+    </nav> 
+  </header>
+  <!-- End of Header -->
+
+  <!-- Suggester Page -->
+  <div id="main-content" class="container">
+    <h2 id="suggester-title" class="text-center">Suggester</h2>
+  
+   <!-- Intro -->
+   <div id="Sp">
+      <p> Discover effective remedies and holistic approaches. We understand the impact that can have on your well-being, which is why we have curated a collection of proven remedies to help you alleviate symptoms and promote healing.</p>
+   </div>
+   
+    <!-- List of Suggester for input box -->
+    <datalist id="scripts">
+     <option value="Cough"><option value="Asthma"><option value="Mental Tension">
+     <option value="Spinal Disorders"><option value="High blood pressure"><option value="Sports Injuries">
+     <option value="Spondylosis"><option value="High Cholesterol"><option value="Fatigue">
+     <option value="ENT Problems"><option value="Obesity"><option value="Headaches">
+     <option value="Respiratory Problems"><option value="Heart Diseases"><option value="Migraine">
+     <option value="Gastric Complaints"><option value="Chest Pain"><option value="Arthritis">
+     <option value="Hemiplegia"><option value="Weight Loss"><option value="Osteoarthritis">
+     <option value="Body Purification"><option value="Gynecological Disorders"><option value="Rheumatism">
+     <option value="Facial Palsies"><option value="Anti-ageing"><option value="Chronic Constipation">
+     <option value="Speech Disorders"><option value="Paralysis"><option value="Piles">
+     <option value="Ptosis"><option value="Back Pain"><option value="Ankylosing Spondylosis">
+     <option value="Nervous Disorders"><option value="Hair Loss"><option value="Cervical Spondylosis">
+     <option value="Gout"><option value="Premature Graying"><option value="Skin Diseases">
+     <option value="Psoriasis"><option value="Insomnia"><option value="Memory Loss">
+    </datalist>  
+
+
+    <!-- Suggester -->
+    <form action="{{ url_for('s2')}}#sresult" method="post">
+      <div id="ssfill" >
+        <div  for = "num" class="inputBox">
+          <input list="scripts" type = 'text' id = 'nam', name = 'n section', required = 'required'>
+          <span>Disease</span>
+        </div>
+      </div>
+    
+      <!-- Submit -->
+      <div id="ssub" >
+        <div for = "snum" class="input">
+          <input id="submit" type="submit" value="Remedies" ></input>
+        </div>
+      </div>  
+      
+    </form>
+    <br></br>
+    
+    <!-- Results -->
+    {% if results %}
+    <div id="sresult" class="container">
+      <p id="table">{{results}}</p>
+    </div>
+    {% endif %}
+  </div> 
+
+  <!-- End of Suggester Page -->
+
+  <!-- Footer -->
+  <footer id="Footer" class="panel-footer" style="background-color:#006400;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   
+  align-items: center ">
+    <div class="container">
+      <section id="Testimonials" class="col-sm-12 text-center">
+        <p>"Ayurveda is a traditional Indian system of medicine that emphasizes the balance between mind, body, and
+          spirit for optimal health and well-being."</p>
+      </section>
+      <div class="text-center">&copy; Copyright @2026</div>
+    </div> <!-- Closing container -->
+  </footer>
+  <!-- End of footer   -->
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="{{ url_for('static',filename='js/jquery-2.1.4.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/suggester.js') }}"></script>
+  
+</body>
+</html>
