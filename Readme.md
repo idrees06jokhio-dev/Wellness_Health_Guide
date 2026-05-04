@@ -1,4 +1,4 @@
-# 🌿 Wellness Health Guide – Disease Prediction & Remedies (Flask)
+# 🌿 Wellness Health Guide – Disease Prediction & Remedies (Flask) -_-
 
 ## 1) Overview
 **Wellness Health Guide** is a lightweight Flask web application designed to:
