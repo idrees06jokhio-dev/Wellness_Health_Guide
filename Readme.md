@@ -48,5 +48,5 @@ Navigate to: `http://localhost:3000`
 
 ---
 
-## 👤 Author
-- MUHAMMAD IDREES 2K23/TCS/34 & YUSRA ZENAB 2K23/TCS/51 
+## 👤 Author -_-
+#- MUHAMMAD IDREES 2K23/TCS/34 & YUSRA ZENAB 2K23/TCS/51 
