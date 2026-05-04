@@ -1,0 +1,41 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+venv/
+env/
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and coverage
+*.log
+.coverage
+.pytest_cache/
+
+# Databases
+database.db
+*.db
+*.sqlite
+*.sqlite3
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+
+# Flask instance folder
+instance/
+
+# Project-specific
+.dist/
+
