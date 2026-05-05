@@ -49,4 +49,12 @@ Navigate to: `http://localhost:3000`
 ---
 
 ## 👤 Author -_-
-#### MUHAMMAD IDREES 2K23/TCS/34 & YUSRA ZENAB 2K23/TCS/51 
+#### MUHAMMAD IDREES (2K23/TCS/34) & YUSRA ZENAB (2K23/TCS/51) 
+
+---
+
+## 📌 Notes
+
+This project is just for of  learning purpose.
+
+---
